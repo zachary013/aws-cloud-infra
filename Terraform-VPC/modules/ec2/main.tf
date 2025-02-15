@@ -6,7 +6,7 @@ resource "aws_instance" "web" {
   vpc_security_group_ids      = [var.sg_id]
   subnet_id                   = var.subnets[count.index]
   availability_zone           = data.aws_availability_zones.available.names[count.index]
-  user_data                   = file("script.sh")
+  user_data                   = file("${path.module}/user_data.sh")
   tags = {
     Name = var.ec2_names[count.index]
   }
