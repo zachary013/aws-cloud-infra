@@ -26,7 +26,7 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.my_vpc.id
 
   tags = {
-    Name = "igw"
+    Name = "MyInternetGateway"
   }
 }
 
@@ -37,6 +37,10 @@ resource "aws_route_table" "rt" {
   route {
     cidr_block = "0.0.0.0/0" # 0.0.0.0/0 public : is the default route for the internet
     gateway_id = aws_internet_gateway.igw.id
+  }
+
+  tags = {
+    Name = "MyRouteTable"
   }
 }
 
