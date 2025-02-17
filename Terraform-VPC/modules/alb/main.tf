@@ -27,7 +27,7 @@ resource "aws_lb_target_group" "tg" {
   vpc_id   = var.vpc_id
 }
 
-# Target Group Attachment
+# Target Grp Attachment
 resource "aws_lb_target_group_attachment" "tga" {
   count = length(var.instances)
   target_group_arn = aws_lb_target_group.tg.arn
